@@ -1,5 +1,6 @@
 #ifndef PAIR_H
 #define PAIR_H
+#include <iostream>
 
 template <typename T1, typename T2>
 
@@ -12,7 +13,7 @@ public:
     T2& second();
     T1& first() const;
     T2& second() const;
-    std::cout& operator<<(std::ostream& lhs, Pair const&);
+    std::ostream &operator<<(std::ostream &ostr, Pair &pair);
 
 private:
     T1 m_first;

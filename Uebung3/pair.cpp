@@ -1,4 +1,5 @@
 #include "pair.h"
+#include <iostream>
 
 Pair::Pair(T1 first,T2 second){
 }
@@ -11,6 +12,14 @@ T2& Pair::second(){
    return m_second;
 }
 
-T1& Pair::first() const;
-T2& Pair::second() const;
-std::cout& operator<<(std::ostream& lhs, Pair const&);
+T1& Pair::first() const{
+
+}
+
+T2& Pair::second() const{
+
+}
+
+friend ostream& operator<<(osream&, const Pair&){
+
+}
