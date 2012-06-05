@@ -15,6 +15,7 @@ using namespace std;
 #include "pair.h"
 #include "less.h"
 #include "greater.h"
+#include "MapToFirst.h"
 //#include "order.h"
 //#include "tree.h"
 //#include "map.h"
@@ -77,12 +78,16 @@ int main()
     cout << "4<3 == " << lessInt(4,3) << endl;
 
 
-#if 0 // move this line down while your implementation proceeds...
-
     /////////////////////////////////////////
     // TEST PAIR ORDER
     MapToFirst< int, float, Less > lessPair;
     cout << i_f << " < " << i_f2 << " == " << lessPair(i_f, i_f2) << endl;
+
+    MapToFirst< int, float, Greater > greaterPair;
+    cout << i_f2 << " > " << i_f << " == " << greaterPair(i_f2, i_f) << endl;
+
+
+#if 0 // move this line down while your implementation proceeds...
 
     /////////////////////////////////////////
     // TEST TREE
