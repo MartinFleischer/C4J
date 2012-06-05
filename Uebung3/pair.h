@@ -12,7 +12,11 @@ class Pair{
     T2 m_second;
 
 public:
-    Pair(T1 first = T1(),T2 second = T2());
+    Pair(T1 first = T1(),T2 second = T2())
+        :m_first(),m_second()
+    {
+    }
+
     T1& first(){
         return m_first;
     }
@@ -29,7 +33,9 @@ public:
     }
 };
 
-inline std::ostream& operator<<(std::ostream &lhs, const Pair &pair);
+inline std::ostream& operator<<(std::ostream &lhs, const Pair &pair){
+
+}
 
 }
 
