@@ -13,6 +13,8 @@ using namespace std;
 
 // include your own header files here...
 #include "pair.h"
+#include "less.h"
+#include "greater.h"
 //#include "order.h"
 //#include "tree.h"
 //#include "map.h"
@@ -67,13 +69,15 @@ int main()
     Pair<string,string> s_s("Hello","World!");
     cout << i_f << " " << s_s << endl;
 
-#if 0 // move this line down while your implementation proceeds...
 
     /////////////////////////////////////////
     // TEST ORDER
     Less<int> lessInt;
     cout << "2<3 == " << lessInt(2,3) << endl;
     cout << "4<3 == " << lessInt(4,3) << endl;
+
+
+#if 0 // move this line down while your implementation proceeds...
 
     /////////////////////////////////////////
     // TEST PAIR ORDER
