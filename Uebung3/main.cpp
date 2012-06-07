@@ -17,7 +17,6 @@ using namespace std;
 #include "greater.h"
 #include "MapToFirst.h"
 #include "tree.h"
-#include "treeiterator.h"
 //#include "map.h"
 
 // you should define your own namespace for
@@ -87,6 +86,8 @@ int main()
     cout << i_f2 << " > " << i_f << " == " << greaterPair(i_f2, i_f) << endl;
 
 
+#if 0 // move this line down while your implementation proceeds...
+
     /////////////////////////////////////////
     // TEST TREE
 
@@ -96,7 +97,7 @@ int main()
     assert(printAndCount(t) == 0);
 
 
-#if 0 // move this line down while your implementation proceeds...
+
 
     // insert elements in a certain order
     t.insert(4);
