@@ -42,4 +42,9 @@ TreeNode<T,O>* TreeNode<T,O>::find(T& value) {
     }
 }
 
+template <typename T, typename O>
+TreeIterator<T,O>& TreeNode<T,O>::getIterator(){
+    return *new TreeIterator<T,O>(this);
+}
+
 #endif

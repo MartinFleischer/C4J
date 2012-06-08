@@ -86,18 +86,15 @@ int main()
     cout << i_f2 << " > " << i_f << " == " << greaterPair(i_f2, i_f) << endl;
 
 
-#if 0 // move this line down while your implementation proceeds...
 
     /////////////////////////////////////////
     // TEST TREE
+
 
     // construct empty tree
     Tree<int> t;
     cout << "empty tree: ";
     assert(printAndCount(t) == 0);
-
-
-
 
     // insert elements in a certain order
     t.insert(4);
@@ -107,6 +104,8 @@ int main()
     t.insert(5);
     cout << "tree 4-3-2-1-5: ";
     assert(printAndCount(t) == 5);
+
+#if 0 // move this line down while your implementation proceeds...
 
     // test clear()
     t.clear();
@@ -147,7 +146,6 @@ int main()
     //   in the same order as with the function Less<>
     cout << "listing backwards: ";
     assert(printAndCountBackwards(ft) == 4);
-
 
     /////////////////////////////////////////
     // TEST MAP

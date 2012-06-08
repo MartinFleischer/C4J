@@ -21,6 +21,8 @@ namespace mystl {
             TreeNode* m_left;
             TreeNode* m_right;
             TreeNode* m_up;
+            TreeIterator<T,O>& getIterator();
+
             T m_value;
 
             TreeNode* findFirst();
@@ -30,6 +32,8 @@ namespace mystl {
         public:
             TreeNode(const T &value = T(), TreeNode<T,O> *up = 0);
 
+            friend class TreeIterator<T,O>;
+            friend class Tree<T,O>;
     };
 }
 

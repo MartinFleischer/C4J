@@ -19,10 +19,10 @@ namespace mystl {
             TreeIterator();
 
             Tree<T,O>* m_tree;
-            TreeNode<T,O>& m_node;
+            TreeNode<T,O>* m_node;
 
-            TreeIterator(TreeNode<T,O> node);
-            T& operator*();
+            TreeIterator(TreeNode<T,O>* node);
+            T* operator*();
             T* operator->();
             TreeIterator<T,O>& operator++();
             TreeIterator<T,O>& operator--();
