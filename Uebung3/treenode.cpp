@@ -31,12 +31,21 @@ TreeNode<T,O>* TreeNode<T,O>::findLast() {
 }
 
 template <typename T, typename O>
-TreeNode<T,O>* TreeNode<T,O>::find(T& value) {
-    O Less;
-    if(Less(m_value,value)) {
-        return m_left->find(value);
-    } else if(Less(value,m_value)) {
-        return m_right->find(value);
+TreeNode<T,O>* TreeNode<T,O>::find(const T& value) {
+    O Order;
+
+    if(Order(m_value,value)) {
+        if(m_left == 0){
+            return m_left;
+        }else{
+            return m_left->find(value);
+        }
+    } else if(Order(value,m_value)) {
+        if(m_right == 0){
+            return m_right;
+        }else{
+            return m_right->find(value);
+        }
     } else {
         return this;
     }

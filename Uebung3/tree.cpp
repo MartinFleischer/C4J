@@ -14,7 +14,9 @@ Tree<T,O>::Tree(TreeNode<T,O> *root)
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::insert(const T& value) {
-
+    if(m_root->find(value) == 0){
+        return (new TreeNode<T,O>(value))->getIterator();
+    }
 }
 
 template <typename T, typename O>
@@ -29,7 +31,7 @@ TreeIterator<T,O> Tree<T,O>::begin() {
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::end() {
-    TreeIterator<T,O>(m_root->findLast());
+    m_root->findLast()->m_right->getIterator();
 }
 
 template <typename T, typename O>

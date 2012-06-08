@@ -25,7 +25,7 @@ using namespace mystl;
 
 // explicit template instantiation for compiling / debugging
 //template class Pair<int,string>;
-//template class Tree< int,Less<int> >;
+template class Tree< int,Less<int> >;
 //template class Map<int, string>;
 
 // list and count all nodes in a set using an iterator
@@ -93,6 +93,7 @@ int main()
 
     // construct empty tree
     Tree<int> t;
+
     cout << "empty tree: ";
     assert(printAndCount(t) == 0);
 
@@ -105,7 +106,8 @@ int main()
     cout << "tree 4-3-2-1-5: ";
     assert(printAndCount(t) == 5);
 
-#if 0 // move this line down while your implementation proceeds...
+    cout << endl;
+    #if 0 // move this line down while your implementation proceeds...
 
     // test clear()
     t.clear();

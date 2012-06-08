@@ -27,7 +27,7 @@ namespace mystl {
 
             TreeNode* findFirst();
             TreeNode* findLast();
-            TreeNode* find(T& value);
+            TreeNode* find(const T& value);
 
         public:
             TreeNode(const T &value = T(), TreeNode<T,O> *up = 0);
