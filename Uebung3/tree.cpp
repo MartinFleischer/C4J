@@ -26,12 +26,14 @@ void Tree<T,O>::clear() {
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::begin() {
-    TreeIterator<T,O>(m_root->findFirst());
+    return TreeIterator<T,O>(m_root->findFirst());
 }
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::end() {
-    m_root->findLast()->m_right->getIterator();
+
+    return 0;
+    return TreeIterator<T,O>(m_root->findLast());
 }
 
 template <typename T, typename O>

@@ -2,6 +2,8 @@
 #define TREENODE_CPP
 
 #include "treenode.h"
+#include <iostream>
+#include <string>
 
 using namespace mystl;
 
@@ -14,8 +16,8 @@ TreeNode<T,O>::TreeNode(const T &value, TreeNode<T,O> *up)
 
 template <typename T, typename O>
 TreeNode<T,O>* TreeNode<T,O>::findFirst() {
-    if(m_value == 0) {
-        return this;
+    if(this == 0) {
+        return 0;
     } else {
         return m_left->findFirst();
     }
@@ -23,8 +25,8 @@ TreeNode<T,O>* TreeNode<T,O>::findFirst() {
 
 template <typename T, typename O>
 TreeNode<T,O>* TreeNode<T,O>::findLast() {
-    if(m_value == 0) {
-        return this;
+    if(this == 0) {
+        return 0;
     } else {
         return m_right->findLast();
     }
