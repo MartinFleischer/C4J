@@ -97,16 +97,16 @@ int main()
     cout << "empty tree: ";
     assert(printAndCount(t) == 0);
 
-#if 0 // move this line down while your implementation proceeds...
     // insert elements in a certain order
     t.insert(4);
     t.insert(3);
     t.insert(2);
     t.insert(1);
     t.insert(5);
-    cout << "tree 4-3-2-1-5: ";
+    cout << "tree 4-3-2-1-5: " << printAndCount(t);
     assert(printAndCount(t) == 5);
 
+#if 0 // move this line down while your implementation proceeds...
     cout << endl;
 
     // test clear()
