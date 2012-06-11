@@ -31,7 +31,7 @@ TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
     }else if(m_node->m_up->m_value > m_node->m_value){
         return m_node->m_up->getIterator();
     }
-    return (new TreeNode<T,O>(0))->getIterator();
+    return *(new TreeIterator<T,O>(0));
 }
 
 template <typename T, typename O>

@@ -20,7 +20,6 @@ namespace mystl {
     class TreeNode {
 
         protected:
-            TreeNode();
             TreeNode* m_left;
             TreeNode* m_right;
             TreeNode* m_up;
