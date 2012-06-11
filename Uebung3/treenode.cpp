@@ -16,8 +16,8 @@ TreeNode<T,O>::TreeNode(const T &value, TreeNode<T,O> *up)
 
 template <typename T, typename O>
 TreeNode<T,O>* TreeNode<T,O>::findFirst() {
-    if(this == 0) {
-        return 0;
+    if(this->m_left == 0) {
+        return this;
     } else {
         return m_left->findFirst();
     }
@@ -25,8 +25,8 @@ TreeNode<T,O>* TreeNode<T,O>::findFirst() {
 
 template <typename T, typename O>
 TreeNode<T,O>* TreeNode<T,O>::findLast() {
-    if(this == 0) {
-        return 0;
+    if(this->m_right == 0) {
+        return this;
     } else {
         return m_right->findLast();
     }
@@ -38,13 +38,13 @@ TreeNode<T,O>* TreeNode<T,O>::find(const T& value) {
 
     if(Order(m_value,value)) {
         if(m_left == 0){
-            return m_left;
+            return 0;
         }else{
             return m_left->find(value);
         }
     } else if(Order(value,m_value)) {
         if(m_right == 0){
-            return m_right;
+            return 0;
         }else{
             return m_right->find(value);
         }
@@ -55,7 +55,7 @@ TreeNode<T,O>* TreeNode<T,O>::find(const T& value) {
 
 template <typename T, typename O>
 TreeIterator<T,O>& TreeNode<T,O>::getIterator(){
-    return *new TreeIterator<T,O>(this);
+    return *(new TreeIterator<T,O>(this));
 }
 
 #endif

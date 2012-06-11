@@ -23,13 +23,15 @@ T* TreeIterator<T,O>::operator->() {
 
 template <typename T, typename O>
 TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
-    if(m_node->m_right){
-        return m_node->m_right->findFirst()->getIterator();
-    } else if(m_node->m_up != 0 && m_node->m_up > m_node){
+    if(m_node->m_right == 0){
+        return *new TreeIterator<T,O>(0);
+    }
+    if(m_node->m_right != 0){
+        return m_node->m_right->getIterator();
+    }else if(m_node->m_up->m_value > m_node->m_value){
         return m_node->m_up->getIterator();
     }
-    cerr << "unsupported operation\n";
-    throw;
+    return (new TreeNode<T,O>(0))->getIterator();
 }
 
 template <typename T, typename O>
@@ -38,13 +40,13 @@ TreeIterator<T,O>& TreeIterator<T,O>::operator--() {
 }
 
 template <typename T, typename O>
-bool TreeIterator<T,O>::operator==(const TreeIterator<T,O> &rhs) {
-    return this->m_node->m_value == rhs.m_node->m_value && this->m_tree == this->m_tree;
+bool TreeIterator<T,O>::operator==(const TreeIterator<T,O>& rhs) {
+    return &(this->m_node) == &(rhs.m_node);
 }
 
 template <typename T, typename O>
-bool TreeIterator<T,O>::operator!=(const TreeIterator<T,O> &rhs) {
-    return !(this->m_node->m_value == rhs.m_node->m_value && this->m_tree == this->m_tree);
+bool TreeIterator<T,O>::operator!=(const TreeIterator<T,O>& rhs) {
+    return !(*this == rhs);
 }
 
 #endif
