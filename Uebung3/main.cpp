@@ -103,8 +103,8 @@ int main()
     t.insert(2);
     t.insert(1);
     t.insert(5);
-    cout << endl << (t.end().m_node == 0)  << endl;
-    cout << "tree 4-3-2-1-5: " << printAndCount(t);
+    cout << endl << t.m_root->left()->value()  << endl;
+    //cout << "tree 4-3-2-1-5: " << printAndCount(t);
     //assert(printAndCount(t) == 5);
 
 #if 0 // move this line down while your implementation proceeds...
