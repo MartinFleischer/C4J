@@ -36,7 +36,15 @@ TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
 
 template <typename T, typename O>
 TreeIterator<T,O>& TreeIterator<T,O>::operator--() {
-    return m_node->m_up;
+    if(m_node->m_left == 0){
+        return *new TreeIterator<T,O>(0);
+    }
+    if(m_node->m_left != 0){
+        return m_node->m_left->getIterator();
+    }else if(m_node->m_up->m_value < m_node->m_value){
+        return m_node->m_up->getIterator();
+    }
+    return *(new TreeIterator<T,O>(0));
 }
 
 template <typename T, typename O>
