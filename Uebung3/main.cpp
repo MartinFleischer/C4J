@@ -34,11 +34,7 @@ int printAndCount(Container & c) {
 
     int n=0;
 
-    //cout << (++((*c.m_root).getIterator())).m_node->value() << " -- " << endl;
-    //cout << c.last().m_node->value() << " -- " << endl;
-
-    //return 0;
-    for(typename Container::iterator i=c.begin(); i!=c.last(); ++i, ++n) {
+    for(typename Container::iterator i=c.begin(); i!=c.end(); ++i, ++n) {
         cout << *i << " ";
 
         if(n == 20) {
@@ -113,9 +109,9 @@ int main()
     t.insert(2);
     t.insert(1);
     t.insert(5);
-    //cout << endl << t.m_root->left()->value()  << endl;
-    //cout << "tree 4-3-2-1-5: " << printAndCount(t);
-    //assert(printAndCount(t) == 5);
+
+    cout << "tree 4-3-2-1-5: " << endl;
+    assert(printAndCount(t) == 5);
 
 #if 0 // move this line down while your implementation proceeds...
     cout << endl;

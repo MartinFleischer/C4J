@@ -39,7 +39,6 @@ TreeIterator<T,O> Tree<T,O>::insert(const T& value) {
             }
         }
     }
-    return 0;
 }
 
 template <typename T, typename O>
@@ -50,23 +49,22 @@ void Tree<T,O>::clear() {
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::begin() {
-    return m_root->findFirst()->getIterator();
+    return TreeIterator<T,O>(m_root, this);
 }
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::end() {
-    //return m_root->findLast()->getIterator();
-    return TreeIterator<T,O>(0);
+    return TreeIterator<T,O>(0, this);
 }
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::first() {
-
+    return TreeIterator<T,O>(m_root->findFirst(), this);
 }
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::last() {
-    return m_root->findLast()->getIterator();
+    return TreeIterator<T,O>(m_root->findLast(), this);
 }
 
 template <typename T, typename O>

@@ -5,15 +5,14 @@
 #include "treenode.h"
 
 using namespace mystl;
+int ope = 20;
+template <typename T, typename O>
+TreeIterator<T,O>::TreeIterator(TreeNode<T,O>* node, Tree<T,O>* tree = 0)
+    :m_node(node),m_tree(tree) {}
 
 template <typename T, typename O>
-TreeIterator<T,O>::TreeIterator(TreeNode<T,O>* node) {
-    this->m_node = node;
-}
-
-template <typename T, typename O>
-T* TreeIterator<T,O>::operator*() {
-    return &this->m_node->m_value;
+T& TreeIterator<T,O>::operator*() {
+    return this->m_node->m_value;
 }
 
 template <typename T, typename O>
@@ -23,29 +22,33 @@ T* TreeIterator<T,O>::operator->() {
 
 template <typename T, typename O>
 TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
-    if(m_node->m_right == 0){
-        cout << "__1__" << m_node->m_up->m_value << endl;
-        if(m_node->m_up->m_value > m_node->m_value) {
-            cout << "hii" << endl;
-            m_node = m_node->m_up;
-            return *this;
-        } else {
-            cout << "hii2" << endl;
-            //this->m_node = 0;
-            return *this;
-        }
-    }
-    if(m_node->m_right != 0){
-        cout << "__2__" << m_node->m_right->m_value << endl;
+    if( !m_node ){
+        return *this;
+    } else if(m_node->m_left){
+        m_node = m_node->m_left;
+        return *this;
+    } else if(m_node->m_right){
         m_node = m_node->m_right;
         return *this;
-    }else if(m_node->m_up->m_value > m_node->m_value){
-        cout << "__3__" << endl;
-        m_node = m_node->m_up;
-        return *this;
+    } else {
+        return this->nextRightNode();
     }
-    cout << "__4__" << endl;
-    return *(new TreeIterator<T,O>(0));
+}
+
+template <typename T, typename O>
+TreeIterator<T,O>& TreeIterator<T,O>::nextRightNode() {
+    if(m_node->m_up) {
+        if(m_node->m_up->m_right && m_node->m_up->m_right->m_value != m_node->m_value){
+            m_node = m_node->m_up->m_right;
+            return *this;
+        } else {
+            m_node = m_node->m_up;
+            return nextRightNode();
+        }
+    } else {
+        m_node = 0;
+        return *new TreeIterator<T,O>(0);
+    }
 }
 
 template <typename T, typename O>
@@ -63,7 +66,7 @@ TreeIterator<T,O>& TreeIterator<T,O>::operator--() {
 
 template <typename T, typename O>
 bool TreeIterator<T,O>::operator==(const TreeIterator<T,O>& rhs) {
-    return &(this->m_node) == &(rhs.m_node);
+    return this->m_node == rhs.m_node;
 }
 
 template <typename T, typename O>

@@ -9,7 +9,7 @@ using namespace mystl;
 
 template <typename T, typename O>
 TreeNode<T,O>::TreeNode(const T &value, TreeNode<T,O> *up)
-    :m_up(up), m_value(value)
+    :m_up(up), m_value(value), m_left(0), m_right(0)
 {
 
 }

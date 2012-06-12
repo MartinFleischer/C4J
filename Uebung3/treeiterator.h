@@ -15,14 +15,18 @@ namespace mystl {
 
     template <typename T, typename O=Less<T> >
     class TreeIterator {
+
+        private:
+            TreeIterator<T,O>& nextRightNode();
+
         public:
             TreeIterator();
+            TreeIterator(TreeNode<T,O>* node, Tree<T,O>* tree);
 
             Tree<T,O>* m_tree;
             TreeNode<T,O>* m_node;
 
-            TreeIterator(TreeNode<T,O>* node);
-            T* operator*();
+            T& operator*();
             T* operator->();
             TreeIterator<T,O>& operator++();
             TreeIterator<T,O>& operator--();
