@@ -25,6 +25,9 @@ namespace mystl {
         iterator first();
         iterator last();
         iterator find(const T& value);
+
+    private:
+        void removeNode(TreeNode<T,O>* node);
     };
 }
 

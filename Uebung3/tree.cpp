@@ -43,8 +43,22 @@ TreeIterator<T,O> Tree<T,O>::insert(const T& value) {
 
 template <typename T, typename O>
 void Tree<T,O>::clear() {
-    m_root->m_left = 0;
-    m_root->m_right = 0;
+    this->removeNode(m_root);
+    m_root = 0;
+}
+
+template <typename T, typename O>
+void Tree<T,O>::removeNode(TreeNode<T,O>* node) {
+    if(node->m_left) {
+        removeNode(node->m_left);
+    }
+    if(node->m_right) {
+        removeNode(node->m_right);
+    }
+
+    node->m_left = 0;
+    node->m_right = 0;
+    node->m_up = 0;
 }
 
 template <typename T, typename O>

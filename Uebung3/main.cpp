@@ -113,14 +113,12 @@ int main()
     cout << "tree 4-3-2-1-5: " << endl;
     assert(printAndCount(t) == 5);
 
-#if 0 // move this line down while your implementation proceeds...
     cout << endl;
 
     // test clear()
     t.clear();
     cout << "after clear(): ";
     assert(printAndCount(t) == 0);
-
 
 
     // try another insertion order
@@ -142,6 +140,8 @@ int main()
     t.insert(3);
     cout << "6-element tree: ";
     assert(printAndCount(t) == 6);
+
+    #if 0 // move this line down while your implementation proceeds...
 
     // now we contruct a tree with a "reverse" order
     typedef Tree< float, Greater<float> > RevFloatTree;
