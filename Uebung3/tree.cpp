@@ -16,20 +16,21 @@ TreeIterator<T,O> Tree<T,O>::insert(const T& value) {
         return TreeIterator<T,O>(m_root);
     }else{
         if(m_root->find(value) != 0){
-        }else if(m_root->find(value) == 0){
+
+        } else if(m_root->find(value) == 0){
             TreeNode<T,O>* node = m_root;
             O Order;
             while(node != 0){
                 if(Order(value,node->m_value)) {
                     if(node->m_left == 0){
-                        node->m_left = new TreeNode<T,O>(value);
+                        node->m_left = new TreeNode<T,O>(value,node);
                         return node->m_left->getIterator();
                     }else{
                         node = node->m_left;
                     }
                 } else if(Order(node->m_value,value)) {
                     if(node->m_right == 0){
-                        node->m_right = new TreeNode<T,O>(value);
+                        node->m_right = new TreeNode<T,O>(value,node);
                         return node->m_right->getIterator();
                     }else{
                         node = node->m_right;

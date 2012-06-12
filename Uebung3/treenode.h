@@ -23,7 +23,6 @@ namespace mystl {
             TreeNode* m_left;
             TreeNode* m_right;
             TreeNode* m_up;
-            TreeIterator<T,O>& getIterator();
             T m_value;
 
 
@@ -32,6 +31,7 @@ namespace mystl {
             TreeNode* find(const T& value);
 
         public:
+            TreeIterator<T,O>& getIterator();
             TreeNode* left(){
                 if(m_left == 0){ cout << "nix da" << endl;return 0;}
                 return m_left;

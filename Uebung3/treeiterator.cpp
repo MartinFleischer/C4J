@@ -24,13 +24,27 @@ T* TreeIterator<T,O>::operator->() {
 template <typename T, typename O>
 TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
     if(m_node->m_right == 0){
-        return *new TreeIterator<T,O>(0);
+        cout << "__1__" << m_node->m_up->m_value << endl;
+        if(m_node->m_up->m_value > m_node->m_value) {
+            cout << "hii" << endl;
+            m_node = m_node->m_up;
+            return *this;
+        } else {
+            cout << "hii2" << endl;
+            //this->m_node = 0;
+            return *this;
+        }
     }
     if(m_node->m_right != 0){
-        return m_node->m_right->getIterator();
+        cout << "__2__" << m_node->m_right->m_value << endl;
+        m_node = m_node->m_right;
+        return *this;
     }else if(m_node->m_up->m_value > m_node->m_value){
-        return m_node->m_up->getIterator();
+        cout << "__3__" << endl;
+        m_node = m_node->m_up;
+        return *this;
     }
+    cout << "__4__" << endl;
     return *(new TreeIterator<T,O>(0));
 }
 
