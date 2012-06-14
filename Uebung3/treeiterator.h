@@ -22,8 +22,8 @@ namespace mystl {
         public:
             TreeIterator(TreeNode<T,O>* node, Tree<T,O>* tree);
 
-            Tree<T,O>* m_tree;
             TreeNode<T,O>* m_node;
+            Tree<T,O>* m_tree;
 
             T& operator*();
             T* operator->();

@@ -2,7 +2,6 @@
 #define TREENODE_H
 
 #include "less.h"
-#include <iostream>
 
 using namespace std;
 
@@ -19,12 +18,12 @@ namespace mystl {
     template <typename T, typename O=Less<T> >
     class TreeNode {
 
-        protected:
+        protected:  
+            T m_value;
+            TreeNode* m_up;
+            Tree<T,O>* m_tree;
             TreeNode* m_left;
             TreeNode* m_right;
-            TreeNode* m_up;
-            T m_value;
-            Tree<T,O>* m_tree;
 
 
             TreeNode* findFirst();
