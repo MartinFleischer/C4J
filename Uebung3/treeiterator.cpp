@@ -4,6 +4,8 @@
 #include "treeiterator.h"
 #include "treenode.h"
 #include "tree.h"
+#include <iostream>
+using namespace std;
 
 using namespace mystl;
 int ope = 20;
@@ -75,10 +77,9 @@ TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
 template <typename T, typename O>
 TreeIterator<T,O>& TreeIterator<T,O>::operator--() {
     O Order;
-
-    if( !m_node ){
-        TreeIterator<T,O> t = this->m_node->m_tree->last();
-        return t;
+    if( m_node == 0 ){
+        m_node = m_tree->last().m_node;
+        return *this;
     }else if(m_node->m_left){
         m_node =  m_node->m_left->findLast();
         return *this;

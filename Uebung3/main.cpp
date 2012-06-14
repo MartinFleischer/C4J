@@ -154,10 +154,10 @@ int main()
 
     // if we list elements backwards, they should be
     //   in the same order as with the function Less<>
-//    cout << "listing backwards: ";
-//    assert(printAndCountBackwards(ft) == 4);
+    cout << "listing backwards: ";
+    assert(printAndCountBackwards(ft) == 4);
 
-
+    #if 0 // move this line down while your implementation proceeds...
 
     /////////////////////////////////////////
     // TEST MAP
@@ -201,9 +201,8 @@ int main()
     assert(last->first() == 42);
     assert(m.min() == first->first());
     assert(m.max() == last->first());
-  //      #if 0 // move this line down while your implementation proceeds...
 
-//#endif
+#endif
 
     cout << "Success!" << endl;
 
