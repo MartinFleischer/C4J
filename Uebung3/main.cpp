@@ -111,7 +111,7 @@ int main()
     t.insert(1);
     t.insert(5);
 
-    cout << t.begin().m_node->value() << endl;
+    //cout << t.begin().m_node->value() << endl;
 
     cout << "tree 4-3-2-1-5: " << endl;
     assert(printAndCount(t) == 5);
