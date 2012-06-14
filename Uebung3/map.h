@@ -12,7 +12,6 @@ namespace mystl {
     class Map
     {
     public:
-        Map();
 
         typedef TreeIterator< Pair<K, V>, O > iterator;
 

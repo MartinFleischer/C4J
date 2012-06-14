@@ -9,13 +9,13 @@ using namespace mystl;
 template <typename K, typename V,typename O >
 
 V& Map<K,V,O>::operator[](const K& k){
-    iterator iterator = this->find(k);
-    if(iterator != m_tree.end()){
-        Pair<K, V> &pair = *iterator;
-        return pair.second();
+    TreeIterator< Pair<K, V>, O > it = this->find(k);
+    if(it != m_tree.end()){
+        Pair<K, V> &p = *it;
+        return p.second();
     } else {
-        Pair<K, V> pair(k);
-        return this->insert(pair)->second();
+        Pair<K, V> p(k);
+        return this->insert(p)->second();
     }
 }
 
@@ -41,7 +41,7 @@ TreeIterator< Pair<K, V>, O > Map<K,V,O>::end(){
 
 template <typename K, typename V,typename O >
 TreeIterator< Pair<K, V>, O > Map<K,V,O>::first(){
-    return this->m_tree.first();
+    return this->m_tree.begin();
 }
 
 template <typename K, typename V,typename O >
@@ -51,12 +51,12 @@ TreeIterator< Pair<K, V>, O > Map<K,V,O>::last(){
 
 template <typename K, typename V,typename O >
 const K& Map<K,V,O>::min(){
-    return (this->first()->first());
+    return *this->m_tree.begin().m_node;
 }
 
 template <typename K, typename V,typename O >
 const K& Map<K,V,O>::max(){
-    return (this->last()->first());
+    return *this->m_tree.last().m_node;
 }
 
 template <typename K, typename V,typename O >

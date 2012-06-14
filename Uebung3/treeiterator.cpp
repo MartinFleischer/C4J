@@ -4,8 +4,6 @@
 #include "treeiterator.h"
 #include "treenode.h"
 #include "tree.h"
-#include <iostream>
-using namespace std;
 
 using namespace mystl;
 int ope = 20;
