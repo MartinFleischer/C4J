@@ -8,11 +8,9 @@
 using namespace mystl;
 
 template <typename T, typename O>
-TreeNode<T,O>::TreeNode(const T &value, TreeNode<T,O> *up)
-    :m_up(up), m_value(value), m_left(0), m_right(0)
-{
-
-}
+TreeNode<T,O>::TreeNode(const T &value, TreeNode<T,O> *up, Tree<T,O>* tree)
+    :m_up(up), m_value(value), m_left(0), m_right(0), m_tree(tree)
+{}
 
 template <typename T, typename O>
 TreeNode<T,O>* TreeNode<T,O>::findFirst() {
@@ -59,7 +57,7 @@ TreeNode<T,O>* TreeNode<T,O>::find(const T& value) {
 
 template <typename T, typename O>
 TreeIterator<T,O>& TreeNode<T,O>::getIterator(){
-    return *(new TreeIterator<T,O>(this));
+    return *(new TreeIterator<T,O>(this,this->m_tree));
 }
 
 #endif

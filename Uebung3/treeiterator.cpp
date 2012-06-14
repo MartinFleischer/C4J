@@ -7,7 +7,7 @@
 using namespace mystl;
 int ope = 20;
 template <typename T, typename O>
-TreeIterator<T,O>::TreeIterator(TreeNode<T,O>* node, Tree<T,O>* tree = 0)
+TreeIterator<T,O>::TreeIterator(TreeNode<T,O>* node, Tree<T,O>* tree)
     :m_node(node),m_tree(tree) {}
 
 template <typename T, typename O>
@@ -39,7 +39,7 @@ TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
         }
     }
     m_node = 0;
-    return *new TreeIterator<T,O>(0);
+    return *new TreeIterator<T,O>(0,this->m_tree);
 }
 
 //    if( !m_node ){
@@ -74,8 +74,9 @@ TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
 template <typename T, typename O>
 TreeIterator<T,O>& TreeIterator<T,O>::operator--() {
     O Order;
+
     if( !m_node ){
-        return *this;
+        return this->m_tree->last();
     }else if(m_node->m_left){
         m_node =  m_node->m_left->findLast();
         return *this;
@@ -90,7 +91,7 @@ TreeIterator<T,O>& TreeIterator<T,O>::operator--() {
         }
     }
     m_node = 0;
-    return *new TreeIterator<T,O>(0);
+    return *new TreeIterator<T,O>(0,this->m_tree);
 }
 
 template <typename T, typename O>

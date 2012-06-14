@@ -24,6 +24,7 @@ namespace mystl {
             TreeNode* m_right;
             TreeNode* m_up;
             T m_value;
+            Tree<T,O>* m_tree;
 
 
             TreeNode* findFirst();
@@ -32,12 +33,8 @@ namespace mystl {
 
         public:
             TreeIterator<T,O>& getIterator();
-            TreeNode* left(){
-                if(m_left == 0){ cout << "nix da" << endl;return 0;}
-                return m_left;
-            }
             T value(){return m_value;}
-            TreeNode(const T &value = T(), TreeNode<T,O> *up = 0);
+            TreeNode(const T &value = T(), TreeNode<T,O> *up = 0, Tree<T,O>* tree = 0);
             friend class TreeIterator<T,O>;
             friend class Tree<T,O>;
     };

@@ -20,7 +20,6 @@ namespace mystl {
             TreeIterator<T,O>& nextRightNode();
 
         public:
-            TreeIterator();
             TreeIterator(TreeNode<T,O>* node, Tree<T,O>* tree);
 
             Tree<T,O>* m_tree;

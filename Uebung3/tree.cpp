@@ -13,7 +13,7 @@ template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::insert(const T& value) {
     if(m_root == 0){
         m_root = new TreeNode<T,O>(value);
-        return TreeIterator<T,O>(m_root);
+        return TreeIterator<T,O>(m_root,this);
     }else{
         if(m_root->find(value) != 0){
 
