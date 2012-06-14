@@ -22,37 +22,38 @@ T* TreeIterator<T,O>::operator->() {
 
 template <typename T, typename O>
 TreeIterator<T,O>& TreeIterator<T,O>::operator++() {
+    O Order;
     if( !m_node ){
         return *this;
     }else if(m_node->m_right){
         m_node =  m_node->m_right->findFirst();
         return *this;
-    }else if(!m_node->m_right){
+    }else if(!m_node->m_right && m_node->m_up){
         TreeNode<T,O>* up = m_node->m_up;
-        if(up && up->value() > m_node->m_value ){
-            m_node = up;
-            return *this;
-        }else if (up->m_up && up->m_up->value() > m_node->m_value){
-            m_node = up->m_up;
-            return *this;
-        }else{
-            m_node = 0;
-            return *new TreeIterator<T,O>(0);
+        while(up){
+            if(Order( m_node->m_value,up->value()) ){
+                m_node = up;
+                return *this;
+            }
+            up = up->m_up;
         }
     }
-
-    //    if( !m_node ){
-    //        return *this;
-    //    } else if(m_node->m_left){
-    //        m_node = m_node->m_left;
-    //        return *this;
-    //    } else if(m_node->m_right){
-    //        m_node = m_node->m_right;
-    //        return *this;
-    //    } else {
-    //        return this->nextRightNode();
-    //    }
+    m_node = 0;
+    return *new TreeIterator<T,O>(0);
 }
+
+//    if( !m_node ){
+//        return *this;
+//    } else if(m_node->m_left){
+//        m_node = m_node->m_left;
+//        return *this;
+//    } else if(m_node->m_right){
+//        m_node = m_node->m_right;
+//        return *this;
+//    } else {
+//        return this->nextRightNode();
+//    }
+//}
 
 template <typename T, typename O>
 TreeIterator<T,O>& TreeIterator<T,O>::nextRightNode() {
