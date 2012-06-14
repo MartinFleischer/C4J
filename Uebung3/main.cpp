@@ -115,7 +115,7 @@ int main()
     // test clear()
     t.clear();
     cout << "after clear(): ";
-    //assert(printAndCount(t) == 1);
+    assert(printAndCount(t) == 0);
 
 
     // try another insertion order
@@ -150,12 +150,14 @@ int main()
     cout << "reverse-sorted 4-float tree: ";
     assert(printAndCount(ft) == 4);
 
-#if 0 // move this line down while your implementation proceeds...
+
 
     // if we list elements backwards, they should be
     //   in the same order as with the function Less<>
     cout << "listing backwards: ";
     assert(printAndCountBackwards(ft) == 4);
+
+    #if 0 // move this line down while your implementation proceeds...
 
     /////////////////////////////////////////
     // TEST MAP

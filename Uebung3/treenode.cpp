@@ -27,7 +27,9 @@ TreeNode<T,O>* TreeNode<T,O>::findFirst() {
 
 template <typename T, typename O>
 TreeNode<T,O>* TreeNode<T,O>::findLast() {
-    if(this->m_right == 0) {
+    if(this == 0) {
+        return 0;
+    }else if(this->m_right == 0) {
         return this;
     } else {
         return m_right->findLast();
