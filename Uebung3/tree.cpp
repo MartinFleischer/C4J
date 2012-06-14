@@ -63,7 +63,8 @@ void Tree<T,O>::removeNode(TreeNode<T,O>* node) {
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::begin() {
-    return TreeIterator<T,O>(m_root, this);
+    //return TreeIterator<T,O>(m_root, this);
+    return TreeIterator<T,O>(m_root->findFirst(), this);
 }
 
 template <typename T, typename O>

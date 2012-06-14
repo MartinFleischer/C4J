@@ -101,6 +101,7 @@ int main()
     Tree<int> t;
 
     cout << "empty tree: ";
+
     assert(printAndCount(t) == 0);
 
     // insert elements in a certain order
@@ -109,6 +110,8 @@ int main()
     t.insert(2);
     t.insert(1);
     t.insert(5);
+
+    cout << t.begin().m_node->value() << endl;
 
     cout << "tree 4-3-2-1-5: " << endl;
     assert(printAndCount(t) == 5);
@@ -141,7 +144,7 @@ int main()
     cout << "6-element tree: ";
     assert(printAndCount(t) == 6);
 
-    #if 0 // move this line down while your implementation proceeds...
+
 
     // now we contruct a tree with a "reverse" order
     typedef Tree< float, Greater<float> > RevFloatTree;
@@ -152,6 +155,8 @@ int main()
     ft.insert(17.20);
     cout << "reverse-sorted 4-float tree: ";
     assert(printAndCount(ft) == 4);
+
+#if 0 // move this line down while your implementation proceeds...
 
     // if we list elements backwards, they should be
     //   in the same order as with the function Less<>
