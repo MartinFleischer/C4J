@@ -157,7 +157,7 @@ int main()
     cout << "listing backwards: ";
     assert(printAndCountBackwards(ft) == 4);
 
-    #if 0 // move this line down while your implementation proceeds...
+    //#if 0 // move this line down while your implementation proceeds...
 
     /////////////////////////////////////////
     // TEST MAP
@@ -202,7 +202,7 @@ int main()
     assert(m.min() == first->first());
     assert(m.max() == last->first());
 
-#endif
+//#endif
 
     cout << "Success!" << endl;
 
