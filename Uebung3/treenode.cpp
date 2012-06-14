@@ -18,8 +18,7 @@ template <typename T, typename O>
 TreeNode<T,O>* TreeNode<T,O>::findFirst() {
     if(this == 0) {
         return 0;
-    }
-    if(this->m_left == 0) {
+    }else if(this->m_left == 0) {
         return this;
     } else {
         return m_left->findFirst();
