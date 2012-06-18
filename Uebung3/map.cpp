@@ -2,20 +2,23 @@
 #define MAP_CPP
 
 #include "map.h"
+#include <stdio.h>
+using namespace std;
 
 using namespace mystl;
-
 
 template <typename K, typename V,typename O >
 
 V& Map<K,V,O>::operator[](const K& k){
+
     TreeIterator< Pair<K, V>, O > it = this->find(k);
-    if(it != m_tree.end()){
+    if(it != end()){
         Pair<K, V> &p = *it;
         return p.second();
     } else {
-        Pair<K, V> p(k);
-        return this->insert(p)->second();
+        cout << "hier" << endl;
+        Pair<K, V> p = *new Pair<K,V>(k,V());
+        return this->insert(p).m_node->value().second();
     }
 }
 
@@ -51,12 +54,12 @@ TreeIterator< Pair<K, V>, O > Map<K,V,O>::last(){
 
 template <typename K, typename V,typename O >
 const K& Map<K,V,O>::min(){
-    return *this->m_tree.begin().m_node;
+    return this->first().m_node->value().first();
 }
 
 template <typename K, typename V,typename O >
 const K& Map<K,V,O>::max(){
-    return *this->m_tree.last().m_node;
+    return this->last().m_node->value().first();
 }
 
 template <typename K, typename V,typename O >

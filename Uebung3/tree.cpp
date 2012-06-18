@@ -39,6 +39,7 @@ TreeIterator<T,O> Tree<T,O>::insert(const T& value) {
             }
         }
     }
+    return TreeIterator<T,O>(0, this);
 }
 
 template <typename T, typename O>
@@ -63,7 +64,6 @@ void Tree<T,O>::removeNode(TreeNode<T,O>* node) {
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::begin() {
-    //return TreeIterator<T,O>(m_root, this);
     return TreeIterator<T,O>(m_root->findFirst(), this);
 }
 
@@ -84,7 +84,11 @@ TreeIterator<T,O> Tree<T,O>::last() {
 
 template <typename T, typename O>
 TreeIterator<T,O> Tree<T,O>::find(const T& value){
-    return m_root->find(value)->getIterator();
+    if(m_root->find(value) == 0){
+        return this->end();
+    }else{
+        return m_root->find(value)->getIterator();
+    }
 }
 
 #endif

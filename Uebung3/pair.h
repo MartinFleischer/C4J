@@ -13,11 +13,11 @@ namespace mystl {
 
     public:
         Pair(T1 first = T1(),T2 second = T2())
-            :m_first(),m_second()
-        {
-            this->m_first = first;
-            this->m_second = second;
-        }
+            :m_first(first),m_second(second)
+        {}
+        Pair(const Pair<T1, T2>& p)
+            :m_first(p.first()),m_second(p.second())
+        {}
 
         T1& first(){
             return m_first;

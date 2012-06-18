@@ -18,12 +18,12 @@ namespace mystl {
     template <typename T, typename O=Less<T> >
     class TreeNode {
 
-        protected:  
-            T m_value;
+        protected:
             TreeNode* m_up;
-            Tree<T,O>* m_tree;
+            T m_value;      
             TreeNode* m_left;
             TreeNode* m_right;
+            Tree<T,O>* m_tree;
 
 
             TreeNode* findFirst();
