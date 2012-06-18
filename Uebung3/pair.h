@@ -19,6 +19,12 @@ namespace mystl {
             :m_first(p.first()),m_second(p.second())
         {}
 
+        Pair<T1,T2>& operator=(const Pair<T1,T2>& p) {
+            m_first = p.first();
+            m_second = p.second();
+            return *this;
+        }
+
         T1& first(){
             return m_first;
         }
@@ -40,7 +46,6 @@ namespace mystl {
         lhs << "<" << pair.first() << "," << pair.second() << ">";
         return lhs;
     }
-
 }
 
 #endif // PAIR_H
