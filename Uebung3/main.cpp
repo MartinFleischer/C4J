@@ -181,11 +181,12 @@ int main()
     assert(value == p42.second());
     cout << "find 3 in map: " << (value=m[3]) << endl;
     assert(value == string());
+    cout << value << endl;
 
     // direct write access via operator[]
     cout << "setting m[3] and m[1]." << endl;
     m[1] = p1.second();
-    //m[3] = p3.second();
+    m[3] = p3.second();
 
 
     //cout << "find 3 in map: " << (value=m[3]) << endl;

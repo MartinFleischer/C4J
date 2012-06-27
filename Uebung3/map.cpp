@@ -16,7 +16,7 @@ V& Map<K,V,O>::operator[](const K& k){
         Pair<K, V> &p = *it;
         return p.second();
     } else {
-        Pair<K, V> p = *new Pair<K,V>(k);
+        Pair<K, V> p(k);
         return this->insert(p).m_node->value().second();
     }
 }
