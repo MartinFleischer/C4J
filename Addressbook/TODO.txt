@@ -1,0 +1,18 @@
+TODO
+
+Search Field (QSortFilterProxyModel) 
+
+Remove & Edit Button
+
+Adressliste speichern(File,XML)
+
+MenuBar,ToolBar, status Bar(Element angelegt/editiert/gespeichert)
+
+
+Quellen:
+
+Adressbook example: http://doc.qt.nokia.com/4.7-snapshot/tutorials-addressbook-part5.html
+	besser -> http://doc.qt.nokia.com/4.7-snapshot/itemviews-addressbook.html
+
+XML:  http://www.youtube.com/playlist?list=PL2D1942A4688E9D63&feature=plcp (93,94,95)
+Filtern&Sortieren: http://doc.qt.nokia.com/4.7-snapshot/qsortfilterproxymodel.html
