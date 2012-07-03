@@ -123,6 +123,7 @@ void AddressOverviewWindow::editEntry()
     if(row != -1){
         AddDialog aDialog;
         aDialog.ui->addAddressLable->setText(QString("Edit Address"));
+        aDialog.setWindowTitle(QString("Edit Address"));
 
         aDialog.ui->firstNameLineEdit->setText(firstName);
         aDialog.ui->lastNameLineEdit->setText(lastName);
