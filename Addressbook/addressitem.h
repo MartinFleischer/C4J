@@ -2,6 +2,7 @@
 #define ADDRESSITEM_H
 
 #include <QtCore>
+#include <QIODevice>
 
 class AddressItem
 {
@@ -16,6 +17,16 @@ public:
     QString m_zipCode;
 
     bool operator==(const AddressItem& rhs);
+
 };
+inline QDataStream& operator<<(QDataStream & out, const AddressItem & item ){
+    out << item.m_firstName;
+    return out;
+}
+
+inline QDataStream& operator>>(QDataStream & in, AddressItem & item){
+    in >> item.m_firstName;
+    return in;
+}
 
 #endif // ADDRESSITEM_H

@@ -189,41 +189,41 @@ void AddressOverviewWindow::filterAdresses(){
 
 void AddressOverviewWindow::writeToFile(QString fileName) {
 
-//    QFile file(fileName);
+    QFile file(fileName);
 
-//    if (!file.open(QIODevice::WriteOnly)) {
-//        QMessageBox::information(this, tr("Unable to open file"), file.errorString());
-//        return;
-//    }
+    if (!file.open(QIODevice::WriteOnly)) {
+        QMessageBox::information(this, tr("Unable to open file"), file.errorString());
+        return;
+    }
 
-//    QList< AddressItem > contacts = model->getList();
-//    QDataStream out(&file);
-//    out << contacts;
+    QList< AddressItem > contacts = model->getList();
+    QDataStream out(&file);
+    out << contacts;
 }
 
 void AddressOverviewWindow::readFromFile(QString fileName) {
-    //
-//    QFile file(fileName);
 
-//    if (!file.open(QIODevice::ReadOnly)) {
-//        QMessageBox::information(this, tr("Unable to open file"),
-//                                 file.errorString());
-//        return;
-//    }
+    QFile file(fileName);
 
-//    QList< AddressItem > contacts = model->getList();
-//    QDataStream in(&file);
-//    in >> contacts;
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::information(this, tr("Unable to open file"),
+                                 file.errorString());
+        return;
+    }
 
-//    if (contacts.isEmpty()) {
-//        QMessageBox::information(this, tr("No contacts in file"),
-//                                 tr("The file you are attempting to open contains no contacts."));
-//    } else {
-//        for (int i=0; i<contacts.size(); ++i) {
-//            AddressItem aI = contacts.at(i);
-//            addEntry(aI.m_firstName,aI.m_lastName,aI.m_address,aI.m_city,aI.m_zipCode);
-//        }
-//    }
+    QList< AddressItem > contacts = model->getList();
+    QDataStream in(&file);
+    in >> contacts;
+
+    if (contacts.isEmpty()) {
+        QMessageBox::information(this, tr("No contacts in file"),
+                                 tr("The file you are attempting to open contains no contacts."));
+    } else {
+        for (int i=0; i<contacts.size(); ++i) {
+            AddressItem aI = contacts.at(i);
+            addEntry(aI.m_firstName,aI.m_lastName,aI.m_address,aI.m_city,aI.m_zipCode);
+        }
+    }
 }
 
 void AddressOverviewWindow::openFile()
