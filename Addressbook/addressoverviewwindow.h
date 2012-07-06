@@ -34,6 +34,8 @@ class AddressOverviewWindow : public QMainWindow
         void filterAdresses();       
         void openFile();
         void saveFile();
+        void quitApp();
+        void removeAllEntries();
 
     private:
         void writeToFile(QString fileName);
@@ -42,6 +44,7 @@ class AddressOverviewWindow : public QMainWindow
         TableModel* model;
         QSortFilterProxyModel* proxyModel;
         int selectedFilterColumn;
+
 };
 
 #endif // ADDRESSOVERVIEWWINDOW_H

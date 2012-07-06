@@ -28,9 +28,17 @@ AddressOverviewWindow::AddressOverviewWindow(QWidget *parent) :
     connect(ui->filterComboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(filterColumnSelected()));
     connect(ui->filterLineEdit,SIGNAL(textChanged(QString)),this,SLOT(filterAdresses()));
     connect(ui->removePushButton,SIGNAL(clicked()),this,SLOT(removeEntry()));
+    connect(ui->removeAllPushButton,SIGNAL(clicked()),this,SLOT(removeAllEntries()));
     connect(ui->editPushButton,SIGNAL(clicked()),this,SLOT(editEntry()));
     connect(ui->savePushButton,SIGNAL(clicked()),this,SLOT(saveFile()));
     connect(ui->loadPushButton,SIGNAL(clicked()),this,SLOT(openFile()));
+    connect(ui->actionQuit,SIGNAL(triggered()),this,SLOT(quitApp()));
+    connect(ui->actionLoad,SIGNAL(triggered()),this,SLOT(openFile()));
+    connect(ui->actionSave_As,SIGNAL(triggered()),this,SLOT(saveFile()));
+    connect(ui->actionAdd,SIGNAL(triggered()),this,SLOT(addEntry()));
+    connect(ui->actionEdit,SIGNAL(triggered()),this,SLOT(editEntry()));
+    connect(ui->actionRemove,SIGNAL(triggered()),this,SLOT(removeEntry()));
+    connect(ui->actionRemoveAll,SIGNAL(triggered()),this,SLOT(removeAllEntries()));
 
 
 
@@ -178,6 +186,12 @@ void AddressOverviewWindow::removeEntry()
         model->removeRows(row, 1, QModelIndex());
     }
 }
+void AddressOverviewWindow::removeAllEntries()
+{
+    QTableView *temp = static_cast<QTableView*>(ui->AddressesTableView);
+    QSortFilterProxyModel *proxy = static_cast<QSortFilterProxyModel*>(temp->model());
+    model->removeRows(0,proxy->columnCount(), QModelIndex());
+}
 
 void AddressOverviewWindow::filterColumnSelected(){
     proxyModel->setFilterKeyColumn(ui->filterComboBox->currentIndex());
@@ -240,6 +254,11 @@ void AddressOverviewWindow::saveFile()
     if (!fileName.isEmpty()) {
         this->writeToFile(fileName);
     }
+}
+
+void AddressOverviewWindow::quitApp()
+{
+    return qApp->quit();
 }
 
 
